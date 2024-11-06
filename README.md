@@ -1,98 +1,91 @@
 # 3DViewer
 
-3DViewer — это программа для визуализации каркасных моделей в 3D-пространстве, разработанная на языке C++ с использованием принципов объектно-ориентированного программирования и с интеграцией графического пользовательского интерфейса. Программа поддерживает работу с каркасными моделями формата .obj, позволяет манипулировать объектами в пространстве с помощью различных аффинных преобразований и визуализировать модели с высоким уровнем детализации.
+3DViewer is a program for visualizing wireframe models in 3D space, developed in C++ language using the principles of object-oriented programming and integrating a graphical user interface. The program supports working with wireframe models of .obj format, allows manipulating objects in space using various affine transformations and visualizing models with a high level of detail
 
-Данный проект был выполнен в команде. Я была ответсвенна за реализацию визуальной части программы.
+This project was realized in a team. I was responsible for the implementation of the visual part of the program.
 
-## Оглавление
+## Contents
+1.  [Program Features](#program-features)
+2.  [Requirements](#requirements)
+3.  [Build and Install](#build-and-install)
+2.  [How to Use](#how-to-use)
+2.  [Architecture](#architecture)
+2.  [Testing](#testing)
+2.  [Additional Features](#additional-features)
 
-1.  [Особенности программ](#основные-возможности)
-2.  [Требования](#требования)
-3.  [Сборка и установка](#сборка-и-установка)
-2.  [Как использовать](#как-использовать)
-2.  [Архитектура](#архитектура)
-2.  [Тестирование](#тестирование)
-2.  [Дополнительные особенности](#дополнительные-особенности)
+## Program Features
 
+- Model loading: The program supports loading wireframe models from .obj files with data types: vertex and surface list.
+- Affine Transformations: Features include moving, rotating and scaling the model in X, Y, Z axes.
+- GUI: Developed using the Qt library, providing a user-friendly interface for interacting with the program.
+- Projection types: Support for parallel and center projection.
+- Settings and visualization: Ability to adjust the thickness and type of edges, background color, and save settings between program restarts.
+- Image saving: Ability to save rendered images in BMP and JPEG format.
+- Animation generation: The program supports the creation of GIF-animated screencasts.
+- Performance: Supports models with up to 1,000,000 vertices without interface freezes.
 
-## Особенности программы
+## Requirements
 
-- Загрузка моделей: Программа поддерживает загрузку каркасных моделей из файлов формата .obj с типами данных: список вершин и поверхностей.
-- Аффинные преобразования: Возможности включают перемещение, поворот и масштабирование модели по осям X, Y, Z.
-- Графический интерфейс: Разработан с использованием библиотеки Qt, предоставляя удобный интерфейс для взаимодействия с программой.
-- Типы проекций: Поддержка параллельной и центральной проекции.
-- Настройки и визуализация: Возможность настройки толщины и типа ребер, цвета фона, а также сохранение настроек между перезапусками программы.
-- Сохранение изображений: Возможность сохранять отрендеренные изображения в формате BMP и JPEG.
-- Генерация анимаций: Программа поддерживает создание GIF-анимированных скринкастов.
-- Производительность: Поддержка моделей с количеством вершин до 1,000,000 без зависания интерфейса.
+Program Requirements:
+- Language: C++17
+- Compiler: GCC (GNU Compiler Collection)
+- GUI library: Qt
+- Build system: Makefile
+- Dependencies: Qt 5+
 
-## Требования
+## Build and Install
 
-Программные требования:
-- Язык: C++17
-- Компилятор: GCC (GNU Compiler Collection)
-- GUI-библиотека: Qt
-- Система сборки: Makefile
-- Зависимости: Qt 5+
-
-## Сборка и установка
-
--  Клонирование репозитория:
+- Repository cloning:
 ```
 git clone https://github.com/llllenivka/3DViewer.git
 cd 3DViewer
 ```
-- Сборка с использованием Makefile:
-- Откройте терминал в директории проекта и выполните команду:
+- Build using Makefile:
+- Open a terminal in the project directory and run the command:
 ```
 cd src
 make
 ```
-
-- Для установки выполните:
+- To install, run:
 ```
 make install
 ```
-
-- Для очистки всех скомпилированных файлов:
+- To clean up all compiled files:
 ```
 make clean
 ```
 
-## Как использовать
+## How to Use
 
-Интерфейс программы содержит следующие элементы:
-- Загрузка модели: Кнопка для выбора .obj файла и вывод названия выбранного файла.
-- Аффинные преобразования: Поля ввода и кнопки для перемещения, поворота и масштабирования модели.
-- Информация о модели: Показ информации о модели (количество вершин и ребер).
-- Настройки: Возможность настроить тип проекции, цвет фона, тип и цвет ребер.
-- Для сохранения изображения в формате BMP или JPEG, используйте кнопку "Сохранить изображение".
-- Для записи анимации (GIF) нажмите на кнопку "Записать скринкаст".
+The program interface contains the following elements:
+- Load model: Button to select .obj file and display the name of the selected file.
+- Affine Transformations: Input fields and buttons to move, rotate and scale the model.
+- Model information: Display information about the model (number of vertices and edges).
+- Settings: Ability to adjust the projection type, background color, rib type and color.
+- To save an image in BMP or JPEG format, use the “Save Image” button.
+- To record an animation (GIF), click on the “Save Gif” button.
 
-## Архитектура
+## Architecture
 
-Программа использует паттерн проектирования MVC (Model-View-Controller) для разделения бизнес-логики, пользовательского интерфейса и контроллеров:
+The program uses the Model-View-Controller (MVC) design pattern to separate business logic, user interface, and controllers:
+- Model (Model): Contains the data and business logic. In this case, these are classes for working with 3D models and affine transformations.
+- View (View): Responsible for displaying the data, using the Qt library for the interface.
+- Controller: Handles user actions.
+The design patterns used to implement the design patterns are:
+- Strategy (Athene Transformations).
+- Singleton (Parser Implementation).
+- Facade (Frontend Implementation).
 
-- Модель (Model): Содержит данные и бизнес-логику. В данном случае это классы для работы с 3D моделями и аффинными преобразованиями.
-- Представление (View): Отвечает за отображение данных, используя библиотеку Qt для интерфейса.
-- Контроллер (Controller): Обрабатывает действия пользователя.
+## Testing
 
-Для реализации  паттернов проектирования использованы:
-- Стратегия (Афинные преобразования).
-- Одиночка (Реализация парсера).
-- Фасад (Реализация Frontend).
-
-## Тестирование
-
-Юнит-тесты для проверки корректности работы программы находятся в папке src/Test/. Они включают тесты для:
-Загрузки моделей .obj.
-Аффинных преобразований (перемещение, масштабирование, поворот).
-
-Для запуска тестов выполните команду:
-
+Unit tests to verify the correctness of the program are located in the src/Test/ folder. They include tests for:
+Loading .obj models.
+Affine transformations (move, scale, rotate).
+To run the tests, run the command:
 ```
 make tests
 ```
-## Дополнительные особенности
-- Программа оптимизирована для работы с моделями размером до 1 000 000 вершин.
-- Сохранение настроек: Все пользовательские настройки сохраняются в файл конфигурации и восстанавливаются при следующем запуске программы.
+
+## Additional features
+- The program is optimized to work with models up to 1 000 000 vertices.
+- Saving settings: All user settings are saved to a configuration file and restored the next time the program is run.
